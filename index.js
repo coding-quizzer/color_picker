@@ -34,28 +34,39 @@ const resetColorObj = (colorObj, updateColor) => {
 
 };
 
+const generateColorGrid = (initSettings, $colorPickerBox) => {
+  const { size, colors } = initSettings;
+
+  for (let i = 0; i < size.row; i++) {
+    $colorPickerBox.css("--num-of-rows", "+=1");
+    for (let j = 0; j < size.column; j++) {
+      createColorBox(currentColorObj, $colorPickerBox, i === 1);
+      updateColorObj(currentColorObj, colors.column, size.column);
+    }
+    resetColorObj(currentColorObj, colors.column);
+    console.log(currentColorObj);
+
+    updateColorObj(currentColorObj, colors.row, size.row);
+  }
+
+};
+
 const blockColors = [{ red: "00", green: "00", blue: "00" }];
 let currentColor = '9ACD32';
 let currentColorObj = { red: 0x00, green: 0x00, blue: 0x00 };
 
+const colorBoxInitSettings = {
+  size: { column: 8, row: 8 },
+  colors: { column: "red", row: "blue" }
+};
+
+
 $(() => {
-  const boxColumnSize = 8;
-  const boxRowSize = 8;
+
   const $colorPickerBox = $("#color-picker-box");
 
-  const columnColor = "red";
-  const rowColor = "blue";
+  generateColorGrid(colorBoxInitSettings);
 
-  for (let i = 0; i < boxRowSize; i++) {
-    $colorPickerBox.css("--num-of-rows", "+=1");
-    for (let j = 0; j < boxColumnSize; j++) {
-      createColorBox(currentColorObj, $colorPickerBox, i === 1);
-      updateColorObj(currentColorObj, columnColor, boxColumnSize);
-    }
-    resetColorObj(currentColorObj, columnColor);
-    console.log(currentColorObj);
 
-    updateColorObj(currentColorObj, rowColor, boxRowSize);
-  }
 
 });
