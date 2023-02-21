@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#color-picker-box {
+  --num-of-rows: 0;
+  --num-of-columns: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--num-of-columns), calc(100% / var(--num-of-columns)));
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 50vh;
+}
+
+
+.color-block {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.color-block:hover {
+  border: 0.5px black solid;
+}
