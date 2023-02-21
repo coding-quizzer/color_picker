@@ -9,6 +9,10 @@ h1 {
 }
 
 #color-picker-box {
+  display: flex;
+}
+
+#color-grid-box {
   --num-of-rows: 0;
   --num-of-columns: 0;
   display: grid;
