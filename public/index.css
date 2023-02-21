@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+#color-picker-box {
+  display: flex;
+  --selected-color: white;
+}
+
+#color-grid-box {
+  --num-of-rows: 0;
+  --num-of-columns: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--num-of-columns), calc(100% / var(--num-of-columns)));
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 50vh;
+}
+
+.color-picker-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.color-block {
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.color-block:hover {
+  border: 2px black solid;
+}
+
+input {
+  appearance: slider-vertical;
+}
+
+#color-window {
+  width: 50vh;
+  aspect-ratio: 1/1;
+  background-color: var(--selected-color);
+}
