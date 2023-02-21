@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 5rem;
+}
+
 #color-picker-box {
   --num-of-rows: 0;
   --num-of-columns: 0;
